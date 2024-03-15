@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "linda-store"
+version = "0.1.0"
+description = "Este projeto foi baseado no livro Django-3-by-example do autho Antonio Melé."
+authors = ["Jorge Luiz Plautz <jorge.plautz@gmail.com>"]
+license = "GPLv3"
+readme = "README.md"
+packages = [{include = "linda_store"}]
+
+[tool.poetry.dependencies]
+python = "^3.12"
+django = "^5.0.3"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
