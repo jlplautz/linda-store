@@ -1,3 +1,6 @@
-from django.test import TestCase
+# from django.test import TestCase
 
-# Create your tests here.
+
+def test_root_deve_retornar_200(client):
+    response = client.get('/')  # Act
+    assert response.status_code == 200  # Assert

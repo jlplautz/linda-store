@@ -1,5 +1,7 @@
 from decimal import Decimal
+
 from django.conf import settings
+
 from lindaStore.shop.models import Product
 
 
@@ -13,9 +15,8 @@ class Carrinho(object):
         if not carrinho:
             # salvar o carrinho vazio dentro da sessão
             carrinho = self.session[settings.CARRINHO_SESSION_ID] = {}
-        
-        self.carrinho = carrinho
 
+        self.carrinho = carrinho
 
     def add(self, product, quantity=1, update_quantity=False):
         """
@@ -23,7 +24,10 @@ class Carrinho(object):
         """
         product_id = str(product.id)
         if product_id not in self.carrinho:
-            self.carrinho[product_id] = {'quantity': 0, 'price': str(product.price)}
+            self.carrinho[product_id] = {
+                'quantity': 0,
+                'price': str(product.price),
+            }
 
         if update_quantity:
             self.carrinho[product_id]['quantity'] = quantity
@@ -69,10 +73,12 @@ class Carrinho(object):
         """
         return sum(item['quantity'] for item in self.carrinho.values())
 
-    
     def get_total_price(self):
-        return sum(Decimal(item['price']) * item['quantity'] for item in self.carrinho.values())
-    
+        return sum(
+            Decimal(item['price']) * item['quantity']
+            for item in self.carrinho.values()
+        )
+
     def clear(self):
         # remover o carrinho da sessão
         del self.session[settings.CARRINHO_SESSION_ID]

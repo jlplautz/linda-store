@@ -150,17 +150,39 @@ git pull origin main
 git status
 
 ## issue#13
-git checkout -b issue#13
+git checkout issue#13
 mng runserver 
-history
-mng runserver 
-cd 
-cd Proj_2024/
-ll
-cd linda-store
-code .
-poetry shell
-emulate bash -c '. /home/plautz/Proj_2024/linda-store/.venv/bin/e'
-mng runserver 
+git status
+git add lindaStore/
+git status
+git commit -m 'build(issue#13): Adicinado função ao carrinho + processador de ontexto.'
+git push -u origin issue#13
 git checkout main
+git pull origin main
+git diff
+git branch
 mng runserver 
+git status
+
+## issue#15
+git checkout -b issue#15
+poetry add --group dev pytest pytest-cov taskipy blue isort
+task -l
+task lint
+task format
+poetry add --group dev ruff
+task lint
+task test
+poetry show --tree
+task test
+pytest -s -x --cov=lindaStore -vv
+pytest
+task test
+pytest -s -x --cov=lindaStore -vv
+task test
+pytest -s -x --cov=lindaStore -vv
+pytest
+pytest --cov=lindaStore -vv
+task test
+task lint
+
