@@ -1,8 +1,10 @@
 {% extends "shop/base.html" %}
 {% load static %}
+
 {% block title %}
     {% if category %}{{ category.title }}{% else %}Products{% endif %}
 {% endblock %}
+
 {% block content %}
     <div class="product-detail">
         <img src="{% if product.image %}{{ product.image.url }}{% else %}
@@ -10,6 +12,11 @@
         <h1>{{ product.name }}</h1>
         <h2><a href="{{ product.category.get_absolute_url }}">{{ product.category }}</a></h2>
         <p class="price">${{ product.price }}</p>
+        <form action="{% url "carrinho:carrinho_add" product.id %}" method="post">
+            {{ carrinho_product_form }}
+            {% csrf_token %}
+            <input type="submit" value="Adicionar no Carrinho">
+        </form>
             {{ product.description|linebreaks }}
     </div>
 {% endblock %}

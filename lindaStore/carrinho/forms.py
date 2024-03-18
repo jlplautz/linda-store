@@ -4,6 +4,7 @@ PRODUCT_QUANTITY_CHOICES = [(i, str(i)) for i in range(1, 21)]
 
 
 class CarrinhoAddProductForm(forms.Form):
+    # coerce=int -> para converter o input para inteito
     quantity = forms.TypedChoiceField(
         choices=PRODUCT_QUANTITY_CHOICES,
         coerce=int,
