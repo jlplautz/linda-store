@@ -1,6 +1,8 @@
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import get_object_or_404, redirect, render
 from django.views.decorators.http import require_POST
+
 from lindaStore.shop.models import Product
+
 from .carrinho import Carrinho
 from .forms import CarrinhoAddProductForm
 
@@ -13,11 +15,14 @@ def carrinho_add(request, product_id):
 
     if form.is_valid():
         cd = form.cleaned_data
-        carrinho.add(product=product,
-                quantity=cd['quantity'],
-                update_quantity=cd['update'])
-        
+        carrinho.add(
+            product=product,
+            quantity=cd['quantity'],
+            update_quantity=cd['update'],
+        )
+
     return redirect('carrinho:carrinho_detail')
+
 
 def carrinho_remove(request, product_id):
     carrinho = Carrinho(request)
@@ -31,7 +36,7 @@ def carrinho_detail(request):
     for item in carrinho:
         item['update_quantity_form'] = CarrinhoAddProductForm(
             initial={
-                'quantity':item['quantity'],
+                'quantity': item['quantity'],
                 'update': True,
             }
         )

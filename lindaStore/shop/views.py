@@ -1,6 +1,7 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import get_object_or_404, render
 
 from lindaStore.carrinho.forms import CarrinhoAddProductForm
+
 from .models import Category, Product
 
 
@@ -18,8 +19,9 @@ def product_list(request, category_slug=None):
             'category': category,
             'categories': categories,
             'products': products,
-        }
+        },
     )
+
 
 def product_detail(request, id, slug):
     product = get_object_or_404(
@@ -37,6 +39,5 @@ def product_detail(request, id, slug):
         {
             'product': product,
             'carrinho_product_form': carrinho_product_form,
-        }
+        },
     )
-
