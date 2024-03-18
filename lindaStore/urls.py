@@ -25,6 +25,7 @@ urlpatterns = [
     path(
         'carrinho/', include('lindaStore.carrinho.urls', namespace='carrinho')
     ),
+    path('orders/', include('lindaStore.orders.urls', namespace='orders')),
     path('', include('lindaStore.shop.urls', namespace='shop')),
 ]
 

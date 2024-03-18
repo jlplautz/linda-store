@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     # LindaStore apps
     'lindaStore.shop',
     'lindaStore.carrinho',
+    'lindaStore.orders',
 ]
 
 MIDDLEWARE = [
