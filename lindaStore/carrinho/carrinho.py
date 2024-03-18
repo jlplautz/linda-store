@@ -22,7 +22,7 @@ class Carrinho(object):
         Adicionar u produto no carrinho ou fazer atualização da quantidade.
         """
         product_id = str(product.id)
-        if product_id not in self.cart:
+        if product_id not in self.carrinho:
             self.carrinho[product_id] = {'quantity': 0, 'price': str(product.price)}
 
         if update_quantity:

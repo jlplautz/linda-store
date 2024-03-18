@@ -28,4 +28,11 @@ def carrinho_remove(request, product_id):
 
 def carrinho_detail(request):
     carrinho = Carrinho(request)
+    for item in carrinho:
+        item['update_quantity_form'] = CarrinhoAddProductForm(
+            initial={
+                'quantity':item['quantity'],
+                'update': True,
+            }
+        )
     return render(request, 'carrinho/detail.html', {'carrinho': carrinho})
