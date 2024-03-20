@@ -11,6 +11,8 @@ packages = [{include = "linda_store"}]
 python = "^3.12"
 django = "^5.0.3"
 pillow = "^10.2.0"
+celery = "^5.3.6"
+flower = "^2.0.1"
 
 
 [tool.poetry.group.dev.dependencies]
