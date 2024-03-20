@@ -58,8 +58,6 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'lindaStore.urls'
 
-CARRINHO_SESSION_ID = 'carrinho'
-
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -134,3 +132,13 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+CARRINHO_SESSION_ID = 'carrinho'
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+CELERY_TIMEZONE = 'America/Sao_Paulo'
+
+# CELERY_BROKER_URL = "amqp://guest:guest@localhost:5672/"
+
+# CELERY_BROKER_CONNECTION_RETRY_ON_STARTUP = True
