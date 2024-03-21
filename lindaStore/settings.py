@@ -13,6 +13,8 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 import os
 from pathlib import Path
 
+from decouple import Csv, config
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -26,9 +28,9 @@ SECRET_KEY = (
 )
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = config('DEBUG', cast=bool, default=False)
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
 
 
 # Application definition
@@ -44,6 +46,7 @@ INSTALLED_APPS = [
     'lindaStore.shop',
     'lindaStore.carrinho',
     'lindaStore.orders',
+    'lindaStore.payment',
 ]
 
 MIDDLEWARE = [
@@ -142,3 +145,8 @@ CELERY_TIMEZONE = 'America/Sao_Paulo'
 # CELERY_BROKER_URL = "amqp://guest:guest@localhost:5672/"
 
 # CELERY_BROKER_CONNECTION_RETRY_ON_STARTUP = True
+
+
+STRIPE_PUBLISHABLE_KEY = config('STRIPE_PUBLISHABLE_KEY')
+STRIPE_SECRET_KEY = config('STRIPE_SECRET_KEY')
+STRIPE_API_VERSION = config('STRIPE_API_VERSION')
