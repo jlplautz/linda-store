@@ -1,0 +1,41 @@
+{% extends "shop/base.html" %}
+{% load static %}
+{% block title %}
+    Pagar seu Pedido
+{% endblock %}
+{% block content %}
+    <h1>Sumário do deu pedido</h1>
+    <table class='cart'>
+        <thead>
+            <tr>
+                <th>IMAGEM</th>
+                <th>PRODUTO</th>
+                <th>PREÇO</th>
+                <th>QUANTIDADE</th>
+                <th>TOTAL</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in order.items.all %}
+                <tr>
+                    <td>
+                        <img src="{% if item.product.image %} {{ item.product.image.url }}"
+                        {% else %} {% static "img/no_image.png" %}{% endif %}">
+                    </td>
+                    <td>{{ item.product.name }}</td>
+                    <td class='num'>${{ item.price }}</td>
+                    <td class='num'>${{ item.quatity }}</td>
+                    <td class='num'>${{ item.get_cost }}</td>
+                </tr>
+            {% endfor %}
+            <tr class='total'>
+                <td colspan='4'>TOTAL</td>
+                <td calss='num'>${{ order.get_total_cost }}</td>
+            </tr>
+        </tbody>
+    </table>
+    <form action="{% url 'payment:process' %}" method='post'>
+        <input type="submit" value='Pague agora'>
+            {% csrf_token %}
+    </form>
+{% endblock %}
