@@ -45,7 +45,7 @@ def payment_process(request):
         # create Stripe checkout session
         session = stripe.checkout.Session.create(**session_data)
         # redirect to Stripe payment from
-        return redirect(session.url, coe=303)
+        return redirect(session.url, code=303)
     else:
         return render(request, 'payment/process.html', locals())
 
