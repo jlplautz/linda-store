@@ -48,7 +48,7 @@ lint = 'ruff check . && blue --check . --diff'
 format = 'blue .  && isort .'
 # run = 'uvicorn fast_zero.app:app --reload'
 pre_test = 'task lint'
-test = 'pytest -s -x --cov=lindaStore -vv'
+test = 'pytest -s -x --cov=lindaStore -vv'git 
 post_test = 'coverage html'
 
 
