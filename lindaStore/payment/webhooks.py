@@ -18,10 +18,10 @@ def stripe_webhook(request):
         event = stripe.Webhook.construct_event(
             payload, sig_header, settings.STRIPE_WEBHOOK_SECRET
         )
-    except ValueError as e:
+    except ValueError as e:   # noqa: F841
         # Invalid payload
         return HttpResponse(status=400)
-    except stripe.error.SignatureVerificationError as e:
+    except stripe.error.SignatureVerificationError as e:   # noqa: F841
         # Invalid signature
         return HttpResponse(status=400)
 
@@ -35,7 +35,7 @@ def stripe_webhook(request):
             # mark order as paid
             order.paid = True
             # # store Stripe payment ID
-            # order.stripe_id = session.payment_intent
+            order.stripe_id = session.payment_intent
             order.save()
             # # launch asynchronous task
             # payment_completed.delay(order.id)
