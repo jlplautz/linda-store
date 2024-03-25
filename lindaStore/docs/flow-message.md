@@ -1,4 +1,6 @@
- celery -A lindaStore worker --loglevel=info
+ ```python
+ 
+ celery -A lindaStore worker --loglevel=inf
 [2024-03-20 20:51:23,719: WARNING/MainProcess] No hostname was supplied. Reverting to default 'localhost'
  
  -------------- celery@ProBook-6470b v5.3.6 (emerald-rush)
@@ -37,16 +39,16 @@ you should set broker_connection_retry_on_startup to True.
 [2024-03-20 20:51:25,015: INFO/MainProcess] mingle: all alone
 [2024-03-20 20:51:25,061: INFO/MainProcess] celery@ProBook-6470b ready.
 [2024-03-20 20:51:28,129: INFO/MainProcess] Events of group {task} enabled by remote.
-
+```
 
 ## browser -> http://localhost:8000/orders/create/
-
+```python
 Thank you
 Your order has been successfully completed. Your order number is 24.
-
+```
 
 ## Console terminal 
-
+```python
 [2024-03-20 21:04:14,130: INFO/MainProcess] Task lindaStore.orders.tasks.order_created[10b94959-0e3d-46ac-ad62-ed2fe427ea96] received
 [2024-03-20 21:04:14,142: WARNING/ForkPoolWorker-2] Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
@@ -62,10 +64,10 @@ Dear Jorge Luiz,
 You have successfully placed an order.Your order ID is 24.
 [2024-03-20 21:04:14,142: WARNING/ForkPoolWorker-2] -------------------------------------------------------------------------------
 [2024-03-20 21:04:14,142: INFO/ForkPoolWorker-2] Task lindaStore.orders.tasks.order_created[10b94959-0e3d-46ac-ad62-ed2fe427ea96] succeeded in 0.009326692999820807s: 1
-
+```
 
 ## ***rabbitmq *******************************************************************************
-
+```python
 ❯ docker run -it --rm --name rabbitmq -p 5672:5672 -p 15672:15672 rabbitmq:management
 2024-03-21 17:45:30.011549+00:00 [notice] <0.44.0> Application syslog exited with reason: stopped
 2024-03-21 17:45:30.016417+00:00 [notice] <0.248.0> Logging: switching to configured handler(s); following messages may not be visible in this log output
@@ -291,13 +293,10 @@ You have successfully placed an order.Your order ID is 24.
 2024-03-21 17:49:34.594132+00:00 [info] <0.930.0> Successfully synced tables from a peer
 2024-03-21 17:49:36.944194+00:00 [info] <0.938.0> Waiting for Mnesia tables for 30000 ms, 9 retries left
 2024-03-21 17:49:36.944348+00:00 [info] <0.938.0> Successfully synced tables from a peer
-
-
-
-
+```
 
 ## ***celery *******************************************************************************
-
+```python
 ❯ celery -A lindaStore worker --loglevel=info
 [2024-03-21 17:45:37,504: WARNING/MainProcess] No hostname was supplied. Reverting to default 'localhost'
  
@@ -351,4 +350,4 @@ Dear Jorge Luiz,
 You have successfully placed an order.Your order ID is 28.
 [2024-03-21 17:47:03,873: WARNING/ForkPoolWorker-2] -------------------------------------------------------------------------------
 [2024-03-21 17:47:03,875: INFO/ForkPoolWorker-2] Task lindaStore.orders.tasks.order_created[b803c91f-2aff-4983-83d0-2d33d0c0d4a5] succeeded in 0.13527400199745898s: 1
-
+```

@@ -1,11 +1,15 @@
+## Comandos iniciais
+```python
 git clone git@github.com:jlplautz/linda-store.git
 cd linda-store
 poetry init
 pyenv local 3.12.0
 poetry shell
 poetry env info
+```
 
 ## issue#1
+```python
 git checkout -b issue#1
 source .venv/bin/activate
 pip list
@@ -34,8 +38,10 @@ git checkout main
 git pull origin main
 git branch
 git branch -D issue#1 
+```
 
 ## issue#2
+```python
 git checkout -b issue#2 
 django-admin startapp shop
 django-admin
@@ -51,8 +57,10 @@ git push -u origin issue#2
 git checkout main
 git pull origin main
 git diff
+```
 
 ## issue#4
+```python
 git checkout -b issue#4
 poetry add pillow
 mng showmigrations
@@ -68,14 +76,14 @@ git commit -m 'build(issue#4): Instaldo biblioteca Pillow e do as migrações.'
 git push -u origin issue#4
 git checkout main
 git pull origin main
+```
 
 ## issue#6
+```python
 git checkout -b issue#6
 mng createsuperuser
 django-admin 
-mng 
 mng createsuperuser 
-BB
 mng migrate
 mng createsuperuser 
 mng runserver 
@@ -96,8 +104,10 @@ git commit -m 'build(issue#6): Criado catalodo para site admin e superuser.'
 git push -u origin issue#6
 git checkout main
 git pull origin main
+```
 
 ## issue#9
+```python
 git checkout -b issue#9
 mng runserver 
 git status
@@ -117,8 +127,10 @@ git commit -m 'build(issue#9): Criado catalodo de produtos na ra listar e fazer 
 git push -u origin issue#9
 git checkout main
 git pull origin main
+```
 
 ## issue#11
+```python
 git checkout -b issue#11
 cd lindaStore
 mng startapp carrinho
@@ -148,8 +160,10 @@ git push -u origin issue#11
 git checkout main
 git pull origin main
 git status
+```
 
 ## issue#13
+```python
 git checkout issue#13
 mng runserver 
 git status
@@ -163,8 +177,10 @@ git diff
 git branch
 mng runserver 
 git status
+```
 
 ## issue#15
+```python
 git checkout -b issue#15
 poetry add --group dev pytest pytest-cov taskipy blue isort
 task -l
@@ -185,20 +201,6 @@ pytest
 pytest --cov=lindaStore -vv
 task test
 task lint
-
-pytest
-task test
-task lint
-coverage html
-coverage run --help
-task lint
-task test
-history
-git status
-git add lindaStore/
-git status
-git rm lindaStore/sk
-git status
 poetry add poetry.lock
 git add pyproject.toml poetry.lock
 poetry add poetry.lock
@@ -213,6 +215,10 @@ git commit -m 'build(issue#15): Adicionado libs taskipy, blue, isort, ruff, pyte
 git push -u origin issue#15
 git checkout main
 git pull origin main
+```
+
+## issue#16
+```python
 git status
 git checkout -b issue#16
 cd linda-store
@@ -241,6 +247,10 @@ git push -u origin issue#16
 git checkout main
 git pull origin main
 git diff
+```
+
+## issue#19
+```python
 git checkout -b issue#19
 poetry add celery
 apt-get install rabbitmq
@@ -334,7 +344,6 @@ cd ;;
 cd 
 cd Proj_2024/linda-store
 code .
-
 celery -A lindaStore worker -l info
 docker ps -a
 docker conttainer ls
@@ -447,6 +456,8 @@ git status
 git commit -m 'build(issue#19): Implementadp tarefas assincronas com Celery, mas email não foi enviado.'
 git push -u origin issue#19
 git checkout main
+```python
+
 git pull origin main
 docker compose up --build -d 
 poetry remove celery flower
@@ -517,6 +528,9 @@ docker compose down -v
 docker compose build
 docker compose up
 git stach
+```
+## issue#21
+```python
 git checkout -b issue#21
 git stach pop
 git checkout main
@@ -653,6 +667,10 @@ git stash --help
 git stash info
 git stash list
 git stash show
+```
+
+## issue#22
+```python
 git checkout -b issue#22
 git stash pop
 git status
@@ -667,3 +685,4 @@ git commit -m 'fix(issue#22): Corrigido a versão do python baixamos para 3.11, 
 git push -u origin issue#22
 git checkout main
 git pull origin main
+```
