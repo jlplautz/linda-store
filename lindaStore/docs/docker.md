@@ -1,4 +1,6 @@
-❯ docker run --name rabbitmq -p 5672:5672 -p 15672:15672 rabbitmq:3-management 
+```python
+❯ docker run --name rabbitmq -p 5672:5672 -p 15672:15672 rabbitmq:3-management
+
 Unable to find image 'rabbitmq:3-management' locally
 3-management: Pulling from library/rabbitmq
 bccd10f490ab: Pull complete 
@@ -335,4 +337,4 @@ Status: Downloaded newer image for rabbitmq:3-management
 2024-03-19 10:31:32.548305+00:00 [info] <0.2788.0> Successfully synced tables from a peer
 2024-03-19 10:31:35.811705+00:00 [info] <0.2797.0> Waiting for Mnesia tables for 30000 ms, 9 retries left
 2024-03-19 10:31:35.811907+00:00 [info] <0.2797.0> Successfully synced tables from a peer
-
+```
