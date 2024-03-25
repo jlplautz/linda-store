@@ -28,6 +28,7 @@ urlpatterns = [
     path('orders/', include('lindaStore.orders.urls', namespace='orders')),
     path('payment/', include('lindaStore.payment.urls', namespace='payment')),
     path('', include('lindaStore.shop.urls', namespace='shop')),
+    path('__debug__/', include('debug_toolbar.urls')),
 ]
 
 if settings.DEBUG:
